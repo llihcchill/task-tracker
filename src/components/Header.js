@@ -6,12 +6,18 @@ const Header = ({title}) => {
   // you can input props into the function part of an arrow function
 
   /* for inline styling, use double curly brackets:
+
+     style={{ color: }}
+
+     and then input the string of the styling wanted:
+
      style={{ color: "red", backgroundColor: "black" }}
-     and then input the string the styling:
+
      (also React uses camel case for CSS and HTML stuff, replaces hyphens (-)) */
+
   return (
     <header>
-      <h1 style={headingStyle}>{title}</h1>
+      <h1>{title}</h1>
     </header>
   )
 }
@@ -26,11 +32,17 @@ Header.propTypes = {
 
 /* you can also create a variable to hold the
    styles and reference it in one curly bracket
-   in the style element in the JSX element */
-const headingStyle = {
-  color: "red",
-  backgroundColor: "black",
-}
+   in the style element in the JSX element:
+
+    style={headingStyle}
+
+*/
+
+// keeping this for later
+// const headingStyle = {
+//   color: "red",
+//   backgroundColor: "black",
+// }
 
 // how to set default props:
 /* ------------------------
