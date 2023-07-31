@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "./Button"
 
 // variable into a function (arrow function)
 const Header = ({title}) => {
@@ -18,6 +19,7 @@ const Header = ({title}) => {
   return (
     <header>
       <h1>{title}</h1>
+      <Button />
     </header>
   )
 }
