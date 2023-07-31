@@ -6,20 +6,14 @@ import Button from "./Button"
 const Header = ({title}) => {
   // you can input props into the function part of an arrow function
 
-  /* for inline styling, use double curly brackets:
-
-     style={{ color: }}
-
-     and then input the string of the styling wanted:
-
-     style={{ color: "red", backgroundColor: "black" }}
-
-     (also React uses camel case for CSS and HTML stuff, replaces hyphens (-)) */
+  const onClick = () => {
+    console.log("click")
+  }
 
   return (
-    <header>
+    <header className="header">
       <h1>{title}</h1>
-      <Button />
+      <Button colour="green" text="Add" onClick={onClick} />
     </header>
   )
 }
@@ -32,6 +26,18 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
+// --------------------------------------------------------------------------
+/* for inline styling, use double curly brackets:
+
+   style={{ color: }}
+
+   and then input the string of the styling wanted:
+
+   style={{ color: "red", backgroundColor: "black" }}
+
+   (also React uses camel case for CSS and HTML stuff, replaces hyphens (-))
+*/
+// ---------------------------------------------------------------------------
 /* you can also create a variable to hold the
    styles and reference it in one curly bracket
    in the style element in the JSX element:
@@ -39,8 +45,9 @@ Header.propTypes = {
     style={headingStyle}
 
 */
+// ----------------------------------------------------------------------------
 
-// keeping this for later
+// keeping this
 // const headingStyle = {
 //   color: "red",
 //   backgroundColor: "black",
