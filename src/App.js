@@ -10,11 +10,13 @@ function App() {
       id: 1,
       text: "something to do",
       day: "Friday 17th of June",
+      reminder: true,
     },
     {
       id: 2,
       text: "another thing to do",
       day: "Friday 17th of June",
+      reminder: true,
     }
   ]);
 
@@ -23,14 +25,21 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
+  // toggle reminder
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+  }
+
   // the <div className="container"> can be any one html element,
   // it could be a fragment (<> </>) or a <div> like it is
   return (
     <div className="container">
       <Header title="Task Tracker" />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : "No tasks to show..."}
     </div>
   );
+  // you can implement logic statements in the return function via shorthand
+  // versions of the statement
 }
 
 // how to use a class instead of using a function:
@@ -56,4 +65,4 @@ but then you want to add more methods and functions
   }
    ------------------ */
 
-export default App;
+export default App
