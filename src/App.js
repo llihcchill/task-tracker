@@ -6,15 +6,29 @@ import Tasks from "./components/Tasks";
 
 function App() {
   const [tasks, setTasks] = useState([
-    // default tasks
+    {
+      id: 1,
+      text: "something to do",
+      day: "Friday 17th of June",
+    },
+    {
+      id: 2,
+      text: "another thing to do",
+      day: "Friday 17th of June",
+    }
   ]);
+
+  // delete task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
 
   // the <div className="container"> can be any one html element,
   // it could be a fragment (<> </>) or a <div> like it is
   return (
     <div className="container">
       <Header title="Task Tracker" />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   );
 }
@@ -43,4 +57,3 @@ but then you want to add more methods and functions
    ------------------ */
 
 export default App;
-
